@@ -44,7 +44,7 @@ while True:
         # Fazer a requisição para a API
     response = requests.get(url, params=params)
         # Verificar se a requisição foi bem-sucedida
-    print("depois"+response)
+    print("depois")
     if response.status_code == 200:
             # Acessar o conteúdo da resposta em formato JSON
         dados = response.json()["dados"]
@@ -75,7 +75,7 @@ for proposicao in projetos:
     print("antes2")
     url_tramitacoes = f"https://dadosabertos.camara.leg.br/api/v2/proposicoes/{id_proposicao}/tramitacoes"
     response_tramitacoes = requests.get(url_tramitacoes, headers={"Authorization": f"Bearer {token}"})
-    print("depois2"+ response_tramitacoes)    
+    print("depois2")    
     if response_tramitacoes.status_code == 200:
         tramitacoes = response_tramitacoes.json()['dados']
             
