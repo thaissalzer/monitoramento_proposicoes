@@ -40,9 +40,11 @@ palavras_chave = ["gás natural", "petróleo",
     # Fazer requisições para todas as páginas de resultados
 projetos = []
 while True:
+    print("antes")
         # Fazer a requisição para a API
     response = requests.get(url, params=params)
         # Verificar se a requisição foi bem-sucedida
+    print("depois"+response)
     if response.status_code == 200:
             # Acessar o conteúdo da resposta em formato JSON
         dados = response.json()["dados"]
@@ -70,9 +72,10 @@ for proposicao in projetos:
     id_proposicao = proposicao['id']
         
         # Fazer uma chamada ao endpoint /proposicoes/{id}/tramitacoes para obter as tramitações da proposição
+    print("antes2")
     url_tramitacoes = f"https://dadosabertos.camara.leg.br/api/v2/proposicoes/{id_proposicao}/tramitacoes"
     response_tramitacoes = requests.get(url_tramitacoes, headers={"Authorization": f"Bearer {token}"})
-        
+    print("depois2"+ response_tramitacoes)    
     if response_tramitacoes.status_code == 200:
         tramitacoes = response_tramitacoes.json()['dados']
             
